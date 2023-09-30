@@ -1,5 +1,6 @@
 package com.movie.management.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,6 +30,8 @@ public class Movie {
     @JoinColumn(name = "id_stock")
     private Stock stock;
 
-    @OneToMany(targetEntity = Genre.class, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "movie")
+    @ManyToMany(targetEntity = Genre.class, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinTable(name = "movie_genre", joinColumns = @JoinColumn(name = "id_movie"), inverseJoinColumns = @JoinColumn(name = "id_genre"))
+    @JsonIgnore
     private List<Genre> genres;
 }

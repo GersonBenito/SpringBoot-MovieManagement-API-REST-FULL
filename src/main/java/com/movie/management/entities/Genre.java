@@ -1,5 +1,6 @@
 package com.movie.management.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,7 +15,4 @@ public class Genre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne(targetEntity = Movie.class)
-    @JoinColumn(name = "id_movie")
-    private Movie movie;
 }

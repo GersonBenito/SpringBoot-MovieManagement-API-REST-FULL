@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -32,11 +33,14 @@ public class UserEntity {
     @NotBlank
     private String password;
 
+    private String image;
+
     @ManyToMany(targetEntity = RoleEntity.class, fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_role"))
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_role"))
     private Set<RoleEntity> roles;
 
     @ManyToMany(targetEntity = Movie.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "users_movies", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_movie"))
-    private List<Movie> movies;
+    @JoinTable(name = "user_movie", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_movie"))
+    private List<Movie> movies = new ArrayList<>();
+
 }

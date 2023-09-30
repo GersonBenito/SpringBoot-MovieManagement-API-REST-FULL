@@ -39,21 +39,15 @@ public class AuthenticationController {
         UserEntity userEntity = UserEntity.builder()
                 .email(userEntityDTO.getEmail())
                 .username(userEntityDTO.getUsername())
+                .image(userEntityDTO.getImage())
                 .password(passwordEncoder.encode(userEntityDTO.getPassword()))
                 .roles(roles)
+                .movies(userEntityDTO.getMovies())
                 .build();
 
         userRepository.save(userEntity);
 
-        Map<String, Object> userData = new HashMap<>();
-
-        userData.put("id", userEntity.getId());
-        userData.put("email", userEntity.getEmail());
-        userData.put("username", userEntity.getUsername());
-        userData.put("roles", userEntity.getRoles());
-
-        response.put("message", "Usuario creado");
-        response.put("Data", userData);
+        response.put("message", "Usuario registrado");
 
         return ResponseEntity.ok(response);
     }
