@@ -2,6 +2,7 @@ package com.movie.management.controller;
 
 import com.movie.management.controller.DTO.MovieDTO;
 import com.movie.management.entity.Movie;
+import com.movie.management.persistence.IMovieDAO;
 import com.movie.management.service.IMovieService;
 import com.movie.management.util.ValidFieldUtil;
 
@@ -24,6 +25,9 @@ public class MovieController {
 
     @Autowired
     private IMovieService movieService;
+    
+    @Autowired
+    private IMovieDAO movieDAO;
 
     @Autowired
     private ValidFieldUtil validFieldUtil;
@@ -32,21 +36,7 @@ public class MovieController {
     @PreAuthorize("hasAnyRole('ADMIN','USER','INVITED')")
     public ResponseEntity<Map<String, Object>>findAll(){
         Map<String, Object>response = new HashMap<>();
-        List<MovieDTO> movieList = movieService.findAll()
-                .stream().map(movie -> MovieDTO.builder()
-                        .id(movie.getId())
-                        .title(movie.getTitle())
-                        .description(movie.getDescription())
-                        .posterImage(movie.getPosterImage())
-                        .backgroundImage(movie.getBackgroundImage())
-                        .popularity(movie.getPopularity())
-                        .rentalPrice(movie.getRentalPrice())
-                        .purchasePrice(movie.getPurchasePrice())
-                        .availability(movie.isAvailability()) // lombok agrega el get de esta forma isAvailability
-                        .stock(movie.getStock())
-                        .genres(movie.getGenres())
-                        .build()
-                ).toList();
+        List<MovieDTO> movieList = movieService.findAll();
 
         response.put("message", "Registros obtenidos");
         response.put("Data", movieList);
@@ -57,32 +47,17 @@ public class MovieController {
     @GetMapping("/{id}") // esta ruta debe de ser publico debido a que se les presentara a los usuarios
     @PreAuthorize("hasAnyRole('ADMIN', 'USER', 'INVITED')")
     public ResponseEntity<?>findById(@PathVariable Long id){
-        Map<String, Object>response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         if(id == null){
             response.put("message", "Id no proporcionado");
             return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
         }
 
-        Optional<Movie> movieOptional = movieService.findById(id);
+        Optional<MovieDTO> movieOptional = movieService.findById(id);
 
         if(movieOptional.isPresent()){
-            Movie movie = movieOptional.get();
-            MovieDTO movieDTO = MovieDTO.builder()
-                    .id(movie.getId())
-                    .title(movie.getTitle())
-                    .description(movie.getDescription())
-                    .posterImage(movie.getPosterImage())
-                    .backgroundImage(movie.getBackgroundImage())
-                    .popularity(movie.getPopularity())
-                    .rentalPrice(movie.getRentalPrice())
-                    .purchasePrice(movie.getPurchasePrice())
-                    .availability(movie.isAvailability())
-                    .stock(movie.getStock())
-                    .genres(movie.getGenres())
-                    .build();
-
             response.put("message", "Registro obtenido");
-            response.put("Data", movieDTO);
+            response.put("Data", movieOptional.get());
 
             return ResponseEntity.ok(response);
         }
@@ -101,20 +76,7 @@ public class MovieController {
                 return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
             }
 
-            movieService.save(
-                    Movie.builder()
-                            .title(movieDTO.getTitle())
-                            .description(movieDTO.getDescription())
-                            .posterImage(movieDTO.getPosterImage())
-                            .backgroundImage(movieDTO.getBackgroundImage())
-                            .popularity(movieDTO.getPopularity())
-                            .rentalPrice(movieDTO.getRentalPrice())
-                            .purchasePrice(movieDTO.getPurchasePrice())
-                            .availability(movieDTO.isAvailability())
-                            .stock(movieDTO.getStock())
-                            .genres(movieDTO.getGenres())
-                            .build()
-            );
+			movieService.save(movieDTO);
 
             response.put("message", "Registro guardado");
             response.put("url", new URI("/api/v1/movie"));
@@ -136,7 +98,7 @@ public class MovieController {
             new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
         }
 
-        Optional<Movie> movieOptional = movieService.findById(id);
+        Optional<Movie> movieOptional = movieDAO.findById(id);
 
         if(movieOptional.isPresent()){
             movieService.deleteById(id);
@@ -158,12 +120,12 @@ public class MovieController {
             new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
         }
 
-        Optional<Movie> movieOptional = movieService.findById(id);
+        Optional<Movie> movieOptional = movieDAO.findById(id);
         if(movieOptional.isPresent()){
 
-            Movie movie = getMovie(movieDTO, movieOptional);
+            Movie movie = MovieDTO.Movie(movieDTO, movieOptional.get());
 
-            movieService.save(movie);
+            movieDAO.save(movie);
 
             response.put("message", "Registro actualizado");
 
@@ -176,28 +138,4 @@ public class MovieController {
 
     // TODO: Agregar busqueda por titulo, popularidad, etc, y filtrar por categoria
 
-
-    /**
-     * Method for set values each field to entity Movie
-     * @param movieDTO DTO
-     * @param movieOptional Entity Movie
-     * @return Entity Movie
-     */
-    private static Movie getMovie(MovieDTO movieDTO, Optional<Movie> movieOptional) {
-
-        Movie movie = movieOptional.get();
-
-        movie.setTitle(movieDTO.getTitle());
-        movie.setDescription(movieDTO.getDescription());
-        movie.setPosterImage(movieDTO.getPosterImage());
-        movie.setBackgroundImage(movieDTO.getBackgroundImage());
-        movie.setPopularity(movieDTO.getPopularity());
-        movie.setRentalPrice(movieDTO.getRentalPrice());
-        movie.setPurchasePrice(movieDTO.getPurchasePrice());
-        movie.setAvailability(movieDTO.isAvailability());
-        movie.setStock(movieDTO.getStock());
-        movie.setGenres(movieDTO.getGenres());
-
-        return movie;
-    }
 }
