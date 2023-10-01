@@ -1,5 +1,6 @@
 package com.movie.management.service.impl;
 
+import com.movie.management.controller.DTO.MovieDTO;
 import com.movie.management.entity.Movie;
 import com.movie.management.persistence.IMovieDAO;
 import com.movie.management.service.IMovieService;
@@ -17,18 +18,29 @@ public class MovieServiceImpl implements IMovieService {
     private IMovieDAO movieDAO;
 
     @Override
-    public List<Movie> findAll() {
-        return movieDAO.findAll();
+    public List<MovieDTO> findAll() {
+        return movieDAO.findAll().stream().map(movie -> new MovieDTO(movie)).toList();
     }
 
     @Override
-    public Optional<Movie> findById(Long id) {
-        return movieDAO.findById(id);
+    public Optional<MovieDTO> findById(Long id) {
+        return MovieDTO.MovieDTOOptional(movieDAO.findById(id));
     }
 
     @Override
-    public void save(Movie movie) {
-        movieDAO.save(movie);
+    public void save(MovieDTO movieDTO) {
+        movieDAO.save(Movie.builder()
+                .title(movieDTO.getTitle())
+                .description(movieDTO.getDescription())
+                .posterImage(movieDTO.getPosterImage())
+                .backgroundImage(movieDTO.getBackgroundImage())
+                .popularity(movieDTO.getPopularity())
+                .rentalPrice(movieDTO.getRentalPrice())
+                .purchasePrice(movieDTO.getPurchasePrice())
+                .availability(movieDTO.isAvailability())
+                .stock(movieDTO.getStock())
+                .genres(movieDTO.getGenres())
+                .build());
     }
 
     @Override
