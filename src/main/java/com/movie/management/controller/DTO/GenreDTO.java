@@ -1,6 +1,7 @@
-package com.movie.management.controllers.DTO;
+package com.movie.management.controller.DTO;
 
-import com.movie.management.entities.Movie;
+import com.movie.management.entity.Movie;
+
 import lombok.*;
 
 @NoArgsConstructor

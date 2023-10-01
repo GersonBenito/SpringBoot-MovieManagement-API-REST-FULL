@@ -1,8 +1,9 @@
 package com.movie.management.persistence.impl;
 
-import com.movie.management.entities.Movie;
+import com.movie.management.entity.Movie;
 import com.movie.management.persistence.IMovieDAO;
-import com.movie.management.repositories.IMovieRepository;
+import com.movie.management.repository.IMovieRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

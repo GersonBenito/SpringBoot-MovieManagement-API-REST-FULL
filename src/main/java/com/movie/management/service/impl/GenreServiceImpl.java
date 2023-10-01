@@ -1,8 +1,9 @@
-package com.movie.management.services.impl;
+package com.movie.management.service.impl;
 
-import com.movie.management.entities.Genre;
+import com.movie.management.entity.Genre;
 import com.movie.management.persistence.IGenreDAO;
-import com.movie.management.services.IGenreService;
+import com.movie.management.service.IGenreService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,9 @@
-package com.movie.management.services.impl;
+package com.movie.management.service.impl;
 
-import com.movie.management.entities.Movie;
+import com.movie.management.entity.Movie;
 import com.movie.management.persistence.IMovieDAO;
-import com.movie.management.services.IMovieService;
+import com.movie.management.service.IMovieService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

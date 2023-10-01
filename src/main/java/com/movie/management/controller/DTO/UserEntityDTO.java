@@ -1,6 +1,5 @@
-package com.movie.management.controllers.DTO;
+package com.movie.management.controller.DTO;
 
-import com.movie.management.entities.Movie;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -8,6 +7,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import com.movie.management.entity.Movie;
 
 @NoArgsConstructor
 @AllArgsConstructor

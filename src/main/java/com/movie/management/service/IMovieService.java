@@ -1,9 +1,9 @@
-package com.movie.management.services;
-
-import com.movie.management.entities.Movie;
+package com.movie.management.service;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.movie.management.entity.Movie;
 
 public interface IMovieService {
     public List<Movie> findAll();

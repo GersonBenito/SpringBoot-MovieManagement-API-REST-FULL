@@ -1,4 +1,4 @@
-package com.movie.management.utils.jwt;
+package com.movie.management.util.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

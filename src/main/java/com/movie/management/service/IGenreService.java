@@ -1,9 +1,9 @@
-package com.movie.management.services;
-
-import com.movie.management.entities.Genre;
+package com.movie.management.service;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.movie.management.entity.Genre;
 
 public interface IGenreService {
     public List<Genre> findAll();

@@ -1,8 +1,9 @@
-package com.movie.management.repositories;
+package com.movie.management.repository;
 
-import com.movie.management.entities.Movie;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import com.movie.management.entity.Movie;
 
 @Repository
 public interface IMovieRepository extends CrudRepository<Movie, Long> {

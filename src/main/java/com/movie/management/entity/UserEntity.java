@@ -1,4 +1,4 @@
-package com.movie.management.entities;
+package com.movie.management.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

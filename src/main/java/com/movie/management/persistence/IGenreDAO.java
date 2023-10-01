@@ -1,9 +1,9 @@
 package com.movie.management.persistence;
 
-import com.movie.management.entities.Genre;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.movie.management.entity.Genre;
 
 public interface IGenreDAO {
     public List<Genre> findAll();

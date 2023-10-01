@@ -1,4 +1,4 @@
-package com.movie.management.controllers.DTO;
+package com.movie.management.controller.DTO;
 
 import lombok.*;
 
