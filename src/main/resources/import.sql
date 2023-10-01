@@ -21,3 +21,5 @@ INSERT INTO genre VALUES(8, "Police");
 INSERT INTO genre VALUES(9, "History");
 INSERT INTO genre VALUES(10, "Crime");
 
+INSERT INTO stock VALUES(1, 20);
+INSERT INTO stock VALUES(2, 40);

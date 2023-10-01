@@ -18,7 +18,10 @@ public class Movie {
     private Long id;
     private String title;
     private String description;
-    private String image;
+    @Column(name = "poster_image")
+    private String posterImage;
+    @Column(name = "background_image")
+    private String backgroundImage;
     private double popularity;
     @Column(name = "rental_price")
     private double rentalPrice;
@@ -26,11 +29,11 @@ public class Movie {
     private double purchasePrice;
     private boolean availability = true;
 
-    @OneToOne(targetEntity = Stock.class, cascade = CascadeType.REMOVE)
+    @OneToOne(targetEntity = Stock.class, cascade = CascadeType.MERGE) // CascadeType.MERGE actualizara el registro asociado de la tabla stock
     @JoinColumn(name = "id_stock")
     private Stock stock;
 
-    @ManyToMany(targetEntity = Genre.class, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Genre.class, fetch = FetchType.LAZY)
     @JoinTable(name = "movie_genre", joinColumns = @JoinColumn(name = "id_movie"), inverseJoinColumns = @JoinColumn(name = "id_genre"))
     @JsonIgnore
     private List<Genre> genres;
