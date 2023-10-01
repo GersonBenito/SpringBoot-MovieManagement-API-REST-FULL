@@ -71,7 +71,7 @@ public class MovieController {
     public ResponseEntity<?>save(@RequestBody MovieDTO movieDTO){
         Map<String, Object> response = new HashMap<>();
         try{
-            if(validFieldUtil.isValidField(movieDTO)){
+            if(validFieldUtil.isInvalidField(movieDTO)){
                 response.put("message", "Uno o varios campos estan vacios");
                 return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
             }
@@ -121,14 +121,12 @@ public class MovieController {
         }
 
         Optional<Movie> movieOptional = movieDAO.findById(id);
+        
         if(movieOptional.isPresent()){
-
             Movie movie = MovieDTO.Movie(movieDTO, movieOptional.get());
-
             movieDAO.save(movie);
-
+            
             response.put("message", "Registro actualizado");
-
             return ResponseEntity.ok(response);
         }
 
