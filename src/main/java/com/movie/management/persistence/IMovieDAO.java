@@ -1,9 +1,9 @@
 package com.movie.management.persistence;
 
-import com.movie.management.entities.Movie;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.movie.management.entity.Movie;
 
 public interface IMovieDAO {
     public List<Movie> findAll();

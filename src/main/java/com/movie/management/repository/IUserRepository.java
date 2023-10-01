@@ -1,8 +1,9 @@
-package com.movie.management.repositories;
+package com.movie.management.repository;
 
-import com.movie.management.entities.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import com.movie.management.entity.UserEntity;
 
 import java.util.Optional;
 

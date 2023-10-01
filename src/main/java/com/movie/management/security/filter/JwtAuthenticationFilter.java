@@ -1,8 +1,9 @@
 package com.movie.management.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.movie.management.entities.UserEntity;
-import com.movie.management.utils.jwt.JwtUtils;
+import com.movie.management.entity.UserEntity;
+import com.movie.management.util.jwt.JwtUtils;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

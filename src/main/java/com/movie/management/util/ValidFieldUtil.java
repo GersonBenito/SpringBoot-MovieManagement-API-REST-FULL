@@ -1,8 +1,9 @@
-package com.movie.management.utils;
+package com.movie.management.util;
 
-import com.movie.management.controllers.DTO.GenreDTO;
-import com.movie.management.controllers.DTO.MovieDTO;
 import org.springframework.stereotype.Component;
+
+import com.movie.management.controller.DTO.GenreDTO;
+import com.movie.management.controller.DTO.MovieDTO;
 
 @Component
 public class ValidFieldUtil {

@@ -1,9 +1,10 @@
-package com.movie.management.controllers;
+package com.movie.management.controller;
 
-import com.movie.management.controllers.DTO.MovieDTO;
-import com.movie.management.entities.Movie;
-import com.movie.management.services.IMovieService;
-import com.movie.management.utils.ValidFieldUtil;
+import com.movie.management.controller.DTO.MovieDTO;
+import com.movie.management.entity.Movie;
+import com.movie.management.service.IMovieService;
+import com.movie.management.util.ValidFieldUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,9 @@
 package com.movie.management.persistence.impl;
 
-import com.movie.management.entities.Stock;
+import com.movie.management.entity.Stock;
 import com.movie.management.persistence.IStockDAO;
-import com.movie.management.repositories.IStockRepository;
+import com.movie.management.repository.IStockRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

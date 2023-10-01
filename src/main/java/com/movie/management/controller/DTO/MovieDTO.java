@@ -1,12 +1,13 @@
-package com.movie.management.controllers.DTO;
+package com.movie.management.controller.DTO;
 
-import com.movie.management.entities.Genre;
-import com.movie.management.entities.Stock;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.List;
+
+import com.movie.management.entity.Genre;
+import com.movie.management.entity.Stock;
 
 @NoArgsConstructor
 @AllArgsConstructor

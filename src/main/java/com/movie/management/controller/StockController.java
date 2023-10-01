@@ -1,9 +1,10 @@
-package com.movie.management.controllers;
+package com.movie.management.controller;
 
-import com.movie.management.controllers.DTO.GenreDTO;
-import com.movie.management.controllers.DTO.StockDTO;
-import com.movie.management.entities.Stock;
-import com.movie.management.services.IStockService;
+import com.movie.management.controller.DTO.GenreDTO;
+import com.movie.management.controller.DTO.StockDTO;
+import com.movie.management.entity.Stock;
+import com.movie.management.service.IStockService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

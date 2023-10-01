@@ -1,6 +1,7 @@
-package com.movie.management.entities;
+package com.movie.management.entity;
 
-import com.movie.management.utils.EType;
+import com.movie.management.util.EType;
+
 import jakarta.persistence.*;
 import lombok.*;
 

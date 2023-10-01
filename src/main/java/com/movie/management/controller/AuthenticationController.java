@@ -1,10 +1,11 @@
-package com.movie.management.controllers;
+package com.movie.management.controller;
 
-import com.movie.management.controllers.DTO.UserEntityDTO;
-import com.movie.management.entities.RoleEntity;
-import com.movie.management.entities.UserEntity;
-import com.movie.management.repositories.IUserRepository;
-import com.movie.management.utils.ERole;
+import com.movie.management.controller.DTO.UserEntityDTO;
+import com.movie.management.entity.RoleEntity;
+import com.movie.management.entity.UserEntity;
+import com.movie.management.repository.IUserRepository;
+import com.movie.management.util.ERole;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
