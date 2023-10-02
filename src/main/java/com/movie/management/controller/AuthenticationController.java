@@ -1,5 +1,8 @@
 package com.movie.management.controller;
 
+import static com.movie.management.util.StringUtil.DATA;
+import static com.movie.management.util.StringUtil.MESSAGE;
+
 import com.movie.management.controller.DTO.UserEntityDTO;
 import com.movie.management.entity.RoleEntity;
 import com.movie.management.entity.UserEntity;
@@ -48,7 +51,7 @@ public class AuthenticationController {
 
         userRepository.save(userEntity);
 
-        response.put("message", "Usuario registrado");
+        response.put(MESSAGE, "Usuario registrado");
 
         return ResponseEntity.ok(response);
     }
@@ -57,7 +60,7 @@ public class AuthenticationController {
     public ResponseEntity<Map<String, String>> hello(){
         Map<String, String> response = new HashMap<>();
 
-        response.put("message", "Access endpoint hello");
+        response.put(MESSAGE, "Access endpoint hello");
 
         return ResponseEntity.ok(response);
     }

@@ -1,13 +1,12 @@
 package com.movie.management.controller.DTO;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import com.movie.management.entity.Genre;
 import com.movie.management.entity.Movie;
 import com.movie.management.entity.Stock;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -68,10 +67,8 @@ public class MovieDTO {
 	private double popularity;
 	
 	@NotNull
-	@Column(name = "rental_price")
 	private double rentalPrice;
 	
-	@Column(name = "purchase_price")
 	@NotNull
 	private double purchasePrice;
 	
@@ -81,5 +78,5 @@ public class MovieDTO {
 	
 	private Stock stock;
 	
-	private List<Genre> genres;
+	private Set<Genre> genres;
 }
