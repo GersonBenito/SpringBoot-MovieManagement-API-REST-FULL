@@ -18,6 +18,7 @@ import com.movie.management.entity.Movie;
 public class UserEntityDTO {
 
     private Long id;
+    
     @Email
     @NotBlank
     private String email;
@@ -30,5 +31,7 @@ public class UserEntityDTO {
     private String image;
 
     private Set<String> roles;
+    
+    @Builder.Default
     private List<Movie> movies = new ArrayList<>();
 }

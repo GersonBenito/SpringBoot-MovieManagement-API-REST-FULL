@@ -21,5 +21,15 @@ INSERT INTO genre VALUES(8, "Police");
 INSERT INTO genre VALUES(9, "History");
 INSERT INTO genre VALUES(10, "Crime");
 
-INSERT INTO stock VALUES(1, 20);
-INSERT INTO stock VALUES(2, 40);
+INSERT INTO stock VALUES(69, 20);
+INSERT INTO stock VALUES(79, 40);
+
+INSERT INTO movie VALUES(1, 1,"", "desc", 9.0, "posterimage", 50.0,30.0,"DHOOM", 69);
+INSERT INTO movie VALUES(2, 1,"", "desc", 9.0, "posterimage", 50.0,30.0,"DHOOM2", 79);
+INSERT INTO movie VALUES(3, 1,"", "desc", 9.0, "posterimage", 50.0,30.0,"DHOOM3", null);
+
+INSERT INTO movie_genre VALUES(1,1);
+INSERT INTO movie_genre VALUES(1,6);
+INSERT INTO movie_genre VALUES(1,10);
+INSERT INTO movie_genre VALUES(2,1);
+INSERT INTO movie_genre VALUES(2,6);
