@@ -23,3 +23,4 @@ INSERT INTO genre VALUES(10, "Crime");
 
 INSERT INTO stock VALUES(1, 20);
 INSERT INTO stock VALUES(2, 40);
+-- test
