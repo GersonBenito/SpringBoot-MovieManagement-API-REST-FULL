@@ -1,38 +1,38 @@
-package com.movie.management.persistence.impl;
+package com.movie.management.service.impl;
 
 import com.movie.management.entity.Stock;
 import com.movie.management.persistence.IStockDAO;
-import com.movie.management.repository.IStockRepository;
+import com.movie.management.service.IStockService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
-public class StockDAOImpl implements IStockDAO {
+@Service
+public class StockServiceImpl implements IStockService {
 
     @Autowired
-    private IStockRepository stockRepository;
+    private IStockDAO stockDAO;
 
     @Override
     public List<Stock> findAll() {
-        return (List<Stock>) stockRepository.findAll();
+        return stockDAO.findAll();
     }
 
     @Override
     public Optional<Stock> findById(Long id) {
-        return stockRepository.findById(id);
+        return stockDAO.findById(id);
     }
 
     @Override
     public void save(Stock stock) {
-        stockRepository.save(stock);
+        stockDAO.save(stock);
     }
 
     @Override
     public void deleteById(Long id) {
-        stockRepository.deleteById(id);
+        stockDAO.deleteById(id);
     }
 }

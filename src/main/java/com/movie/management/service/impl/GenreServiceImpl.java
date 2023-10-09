@@ -1,38 +1,38 @@
-package com.movie.management.persistence.impl;
+package com.movie.management.service.impl;
 
 import com.movie.management.entity.Genre;
 import com.movie.management.persistence.IGenreDAO;
-import com.movie.management.repository.IGenreRepository;
+import com.movie.management.service.IGenreService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
-public class GenreDAOImpl implements IGenreDAO {
+@Service
+public class GenreServiceImpl implements IGenreService {
 
     @Autowired
-    private IGenreRepository genreRepository;
+    private IGenreDAO genreDAO;
 
     @Override
     public List<Genre> findAll() {
-        return (List<Genre>) genreRepository.findAll();
+        return genreDAO.findAll();
     }
 
     @Override
     public Optional<Genre> findById(Long id) {
-        return genreRepository.findById(id);
+        return genreDAO.findById(id);
     }
 
     @Override
     public void save(Genre genre) {
-        genreRepository.save(genre);
+        genreDAO.save(genre);
     }
 
     @Override
     public void deleteById(Long id) {
-        genreRepository.deleteById(id);
+        genreDAO.deleteById(id);
     }
 }
