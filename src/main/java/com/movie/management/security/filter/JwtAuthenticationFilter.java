@@ -1,12 +1,12 @@
 package com.movie.management.security.filter;
 
-import static com.movie.management.util.StringUtil.DATA;
-import static com.movie.management.util.StringUtil.MESSAGE;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.movie.management.entity.UserEntity;
+import com.movie.management.util.jwt.JwtUtils;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,14 +16,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.movie.management.entity.UserEntity;
-import com.movie.management.util.jwt.JwtUtils;
-
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -77,8 +72,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         userData.put("token", toke);
         userData.put("username", user.getUsername());
 
-        httpResponse.put(DATA, userData);
-        httpResponse.put(MESSAGE, "Autenticacion correcta");
+        httpResponse.put("Data", userData);
+        httpResponse.put("message", "Autenticacion correcta");
 
         // responder en formato jso usando jackson
         response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));

@@ -2,7 +2,6 @@ package com.movie.management.service;
 
 import com.movie.management.entity.UserEntity;
 import com.movie.management.repository.IUserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

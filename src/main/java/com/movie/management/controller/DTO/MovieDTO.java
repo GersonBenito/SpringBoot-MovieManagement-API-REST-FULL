@@ -1,18 +1,14 @@
 package com.movie.management.controller.DTO;
 
-import java.util.Optional;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.movie.management.entity.Genre;
-import com.movie.management.entity.Movie;
 import com.movie.management.entity.Stock;
-
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,63 +16,24 @@ import lombok.Setter;
 @Setter
 @Builder
 public class MovieDTO {
-
-	public MovieDTO(Movie movie) {
-		this(movie.getId(), movie.getTitle(), movie.getDescription(), movie.getPosterImage(),
-				movie.getBackgroundImage(), movie.getPopularity(), movie.getRentalPrice(), movie.getPurchasePrice(),
-				movie.isAvailability(), movie.getStock(), movie.getGenres());
-	}
-	
-	public static MovieDTO MovieDTOWithoutId(Movie movie) {
-		MovieDTO dto = new MovieDTO(movie);
-		dto.setId(null);
-		return dto;
-	}
-	
-	// this acts like an updater as well as a reverse constructor
-	public static Movie Movie(MovieDTO movieDTO, Movie movie) {
-        movie.setTitle(movieDTO.getTitle());
-        movie.setDescription(movieDTO.getDescription());
-        movie.setPosterImage(movieDTO.getPosterImage());
-        movie.setBackgroundImage(movieDTO.getBackgroundImage());
-        movie.setPopularity(movieDTO.getPopularity());
-        movie.setRentalPrice(movieDTO.getRentalPrice());
-        movie.setPurchasePrice(movieDTO.getPurchasePrice());
-        movie.setAvailability(movieDTO.isAvailability());
-        movie.setStock(movieDTO.getStock());
-        movie.setGenres(movieDTO.getGenres());
-		return movie;
-	}
-	
-	public static Optional<MovieDTO> MovieDTOOptional(Optional<Movie> movie) {
-		return movie.map(MovieDTO::new);
-	}
-
 	private Long id;
-	
 	private String title;
-	
 	@NotNull
 	private String description;
-	
 	private String posterImage;
-	
 	private String backgroundImage;
-	
 	@NotNull
 	private double popularity;
-	
 	@NotNull
-	private double rentalPrice;
-	
+	@Column(name = "rental_price")
 	@NotNull
-	private double purchasePrice;
-	
+	private BigDecimal rentalPrice;
+	@Column(name = "purchase_price")
 	@NotNull
-	@Builder.Default
+	private BigDecimal purchasePrice;
+	@NotNull
 	private boolean availability = true;
-	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Stock stock;
-	
-	private Set<Genre> genres;
+	private List<Genre> genres;
 }

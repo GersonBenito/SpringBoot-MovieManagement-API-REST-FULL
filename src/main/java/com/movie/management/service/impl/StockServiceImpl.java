@@ -3,7 +3,6 @@ package com.movie.management.service.impl;
 import com.movie.management.entity.Stock;
 import com.movie.management.persistence.IStockDAO;
 import com.movie.management.service.IStockService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

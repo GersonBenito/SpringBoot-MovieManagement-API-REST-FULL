@@ -4,7 +4,6 @@ import com.movie.management.security.filter.JwtAuthenticationFilter;
 import com.movie.management.security.filter.JwtAuthorizationFilter;
 import com.movie.management.service.UserDetailServiceImpl;
 import com.movie.management.util.jwt.JwtUtils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

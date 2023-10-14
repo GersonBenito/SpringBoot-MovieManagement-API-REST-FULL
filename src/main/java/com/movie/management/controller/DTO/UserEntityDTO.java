@@ -1,5 +1,6 @@
 package com.movie.management.controller.DTO;
 
+import com.movie.management.entity.Movie;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.movie.management.entity.Movie;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +18,7 @@ import com.movie.management.entity.Movie;
 public class UserEntityDTO {
 
     private Long id;
-    
+
     @Email
     @NotBlank
     private String email;
@@ -31,7 +31,7 @@ public class UserEntityDTO {
     private String image;
 
     private Set<String> roles;
-    
+
     @Builder.Default
     private List<Movie> movies = new ArrayList<>();
 }

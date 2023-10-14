@@ -1,5 +1,7 @@
 package com.movie.management.service;
 
+import com.movie.management.entity.Genre;
+
 import java.util.List;
 import java.util.Optional;
 

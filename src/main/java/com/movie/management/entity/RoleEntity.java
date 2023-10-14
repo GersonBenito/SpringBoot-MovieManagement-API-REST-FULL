@@ -1,7 +1,6 @@
 package com.movie.management.entity;
 
 import com.movie.management.util.ERole;
-
 import jakarta.persistence.*;
 import lombok.*;
 

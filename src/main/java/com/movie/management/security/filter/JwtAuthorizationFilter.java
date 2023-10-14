@@ -2,7 +2,6 @@ package com.movie.management.security.filter;
 
 import com.movie.management.service.UserDetailServiceImpl;
 import com.movie.management.util.jwt.JwtUtils;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

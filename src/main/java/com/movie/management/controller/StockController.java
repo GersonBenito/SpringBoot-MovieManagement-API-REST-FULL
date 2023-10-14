@@ -1,6 +1,5 @@
 package com.movie.management.controller;
 
-import com.movie.management.controller.DTO.GenreDTO;
 import com.movie.management.controller.DTO.StockDTO;
 import com.movie.management.entity.Stock;
 import com.movie.management.service.IStockService;

@@ -76,7 +76,7 @@ public class GenreController {
     public ResponseEntity<?>save(@RequestBody GenreDTO genreDTO){
         Map<String, Object> response = new HashMap<>();
         try {
-            if(validFieldUtil.isInvalidField(genreDTO)){
+            if(validFieldUtil.isValidField(genreDTO)){
                 response.put("message", "Uno o varios campos estan vacios");
                 return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
             }
@@ -126,7 +126,7 @@ public class GenreController {
             new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
         }
 
-        if(validFieldUtil.isInvalidField(genreDTO)){
+        if(validFieldUtil.isValidField(genreDTO)){
             response.put("message", "Uno o varios campos estan vacios");
             return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
         }

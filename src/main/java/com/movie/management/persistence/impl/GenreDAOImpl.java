@@ -3,7 +3,6 @@ package com.movie.management.persistence.impl;
 import com.movie.management.entity.Genre;
 import com.movie.management.persistence.IGenreDAO;
 import com.movie.management.repository.IGenreRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

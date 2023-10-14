@@ -1,5 +1,7 @@
 package com.movie.management.service;
 
+import com.movie.management.entity.Stock;
+
 import java.util.List;
 import java.util.Optional;
 
