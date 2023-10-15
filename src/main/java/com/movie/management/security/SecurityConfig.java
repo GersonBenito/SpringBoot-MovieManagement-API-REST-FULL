@@ -43,7 +43,7 @@ public class SecurityConfig {
 
         return httpSecurity.csrf(config -> config.disable()) // desabilitar crosside para el manejo de formularios desde el frontend
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/api/v1/auth/register").permitAll(); // permitir que todos los usuarios puedan consumir este endpoint
+                    auth.requestMatchers("/api/v1/auth/**").permitAll(); // permitir que todos los usuarios puedan consumir este endpoint
                     auth.anyRequest().authenticated(); // cualquier otro request diferete de /api/vi/register debe de estar autenticado
                 })
                 .sessionManagement(session -> { // administrador de las sesiones

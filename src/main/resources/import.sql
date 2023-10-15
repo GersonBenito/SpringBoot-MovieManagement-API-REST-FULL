@@ -2,7 +2,7 @@ INSERT INTO roles VALUES(1, "ADMIN");
 INSERT INTO roles VALUES(2, "USER");
 INSERT INTO roles VALUES(3, "INVITED");
 
-INSERT INTO users VALUES(1, "gerson.benito@gmail.com", "https://res.cloudinary.com/dokr7v5et/image/upload/v1695446663/ublw2vxl7fqzglaoumkk.png", "$2a$10$S/ebf0ruh7s53vzF6A0XkOSBVyJFv.MHyY5NGMnVFYT2tFNcpP3bW","Gerson Benito");
+INSERT INTO users VALUES(1, "gersonbenito4@gmail.com", "https://res.cloudinary.com/dokr7v5et/image/upload/v1695446663/ublw2vxl7fqzglaoumkk.png", "$2a$10$S/ebf0ruh7s53vzF6A0XkOSBVyJFv.MHyY5NGMnVFYT2tFNcpP3bW","Gerson Benito");
 INSERT INTO users VALUES(2, "susana.montero@gmail.com", "https://res.cloudinary.com/dokr7v5et/image/upload/v1695446663/ublw2vxl7fqzglaoumkk.png", "$2a$10$S/ebf0ruh7s53vzF6A0XkOSBVyJFv.MHyY5NGMnVFYT2tFNcpP3bW","Susana Montero");
 INSERT INTO users VALUES(3, "diana.soto@gmail.com", "https://res.cloudinary.com/dokr7v5et/image/upload/v1695446663/ublw2vxl7fqzglaoumkk.png", "$2a$10$S/ebf0ruh7s53vzF6A0XkOSBVyJFv.MHyY5NGMnVFYT2tFNcpP3bW","Diana Soto");
 
