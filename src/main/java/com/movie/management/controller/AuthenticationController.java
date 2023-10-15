@@ -108,8 +108,12 @@ public class AuthenticationController {
             response.put("message", "Token is null");
             return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
         }
-        response.put("Data", new HashMap<>());
-        response.put("message", "Endpoint in progress");
-        return ResponseEntity.ok(response);
+        if(jwtUtils.isTokenValid(token)){
+            response.put("Data", new HashMap<>());
+            response.put("message", "Endpoint in progress");
+            return ResponseEntity.ok(response);
+        }
+        response.put("message", "Token is invalid");
+        return new ResponseEntity<Object>(response, HttpStatus.FORBIDDEN);
     }
 }
